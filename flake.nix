@@ -26,12 +26,11 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      # FIXME replace with your hostname
       nixostest = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
         # > Our main nixos configuration file <
         modules = [
-          ./hosts/configuration.nix
+          ./hosts/nixostest.nix
           disko.nixosModules.disko
         ];
       };
