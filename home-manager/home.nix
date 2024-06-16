@@ -14,6 +14,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    ./firefox.nix
   ];
 
   nixpkgs = {
@@ -36,12 +37,6 @@
       # Workaround for https://github.com/nix-community/home-manager/issues/2942
       allowUnfreePredicate = _: true;
     };
-  };
-
-  # TODO: Set your username
-  home = {
-    username = "mike";
-    homeDirectory = "/home/mike";
   };
 
   # Add stuff for your user as you see fit:

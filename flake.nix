@@ -12,6 +12,8 @@
     # Home manager
     home-manager.url = "github:nix-community/home-manager/release-24.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    
+    firefox-addons = { url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons"; inputs.nixpkgs.follows = "nixpkgs"; };
   };
 
   outputs = {
@@ -22,29 +24,31 @@
     ...
   } @ inputs: let
     inherit (self) outputs;
+    system = "x86_64-linux";
+    specialArgs = {inherit inputs outputs;};
+    shared-modules = [
+      home-manager.nixosModules.home-manager
+      {
+        home-manager = {
+          useUserPackages = true;
+          extraSpecialArgs = specialArgs;
+          backupFileExtension = "backup";
+        };
+      }
+    ];
   in {
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
       nixostest = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {
+          inherit inputs;
+        };
         # > Our main nixos configuration file <
-        modules = [
+        modules = shared-modules ++ [
           ./hosts/nixostest.nix
           disko.nixosModules.disko
         ];
-      };
-    };
-
-    # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#your-username@your-hostname'
-    homeConfigurations = {
-      # FIXME replace with your username@hostname
-      "mike" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
-        # > Our main home-manager configuration file <
-        modules = [./home-manager/home.nix];
       };
     };
   };

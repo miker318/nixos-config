@@ -8,6 +8,7 @@
     [ (modulesPath + "/profiles/qemu-guest.nix")
       ./disk-config.nix
       ./configuration.nix
+      ../home-manager/mike.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
