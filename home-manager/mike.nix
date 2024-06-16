@@ -9,6 +9,7 @@
       tree
       ardour
       audacity
+      qjackctl
     ];
     openssh = {
       authorizedKeys.keys = [
