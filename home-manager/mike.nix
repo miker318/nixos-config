@@ -7,6 +7,8 @@
     packages = with pkgs; [
       firefox
       tree
+      ardour
+      audacity
     ];
     openssh = {
       authorizedKeys.keys = [

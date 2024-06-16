@@ -14,6 +14,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     
     firefox-addons = { url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons"; inputs.nixpkgs.follows = "nixpkgs"; };
+    musnix = { url = "github:musnix/musnix"; };
   };
 
   outputs = {
@@ -48,6 +49,7 @@
         modules = shared-modules ++ [
           ./hosts/nixostest.nix
           disko.nixosModules.disko
+          inputs.musnix.nixosModules.musnix
         ];
       };
     };

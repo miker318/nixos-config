@@ -31,4 +31,8 @@
   # networking.interfaces.enp6s18.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  
+  musnix.enable = true;
+  musnix.alsaSeq.enable = false;
+  musnix.kernel.realtime = false;
 }
