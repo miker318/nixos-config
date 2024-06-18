@@ -52,6 +52,16 @@
           inputs.musnix.nixosModules.musnix
         ];
       };
+      nixos-pve = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        # > Our main nixos configuration file <
+        modules = shared-modules ++ [
+          ./hosts/nixos-pve.nix
+          disko.nixosModules.disko
+        ];
+      };
     };
   };
 }
