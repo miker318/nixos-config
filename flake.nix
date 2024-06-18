@@ -58,8 +58,8 @@
         };
         # > Our main nixos configuration file <
         modules = shared-modules ++ [
-          ./hosts/nixos-pve.nix
           disko.nixosModules.disko
+          ./hosts/nixos-pve.nix
         ];
       };
     };
