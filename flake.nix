@@ -47,8 +47,8 @@
         };
         # > Our main nixos configuration file <
         modules = shared-modules ++ [
-          disko.nixosModules.disko
           ./hosts/nixos-pve.nix
+          disko.nixosModules.disko
         ];
       };
       nixostest = nixpkgs.lib.nixosSystem {
