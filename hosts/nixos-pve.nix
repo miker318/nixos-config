@@ -6,10 +6,12 @@
 {
   imports =
     [ (modulesPath + "/profiles/qemu-guest.nix")
-      ./disk-config-pve.nix
+      ./disk-config.nix
       ./configuration.nix
       ../home-manager/mike.nix
     ];
+
+  disko.devices.disk.main.device = "/dev/sda";
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
