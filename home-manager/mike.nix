@@ -20,6 +20,20 @@
 
   };
 
+  dconf.settings = {
+    # ...
+    "org/gnome/shell" = {
+      favorite-apps = [
+        "firefox.desktop"
+        "code.desktop"
+        "org.gnome.Terminal.desktop"
+        "spotify.desktop"
+        "virt-manager.desktop"
+        "org.gnome.Nautilus.desktop"
+      ];
+    };
+  };
+
   home-manager = {
     users.mike = {
       imports = [ ./home.nix ];
@@ -29,19 +43,6 @@
         userEmail = "mike@erose.org";
       };
       home.stateVersion = "24.05";
-    };
-    dconf.settings = {
-      # ...
-      "org/gnome/shell" = {
-        favorite-apps = [
-          "firefox.desktop"
-          "code.desktop"
-          "org.gnome.Terminal.desktop"
-          "spotify.desktop"
-          "virt-manager.desktop"
-          "org.gnome.Nautilus.desktop"
-        ];
-      };
     };
   };
 
