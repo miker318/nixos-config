@@ -11,6 +11,8 @@ sudo nix \
     --write-efi-boot-entries \
     --disk main "$DISK_DEVICE"
 
+# using nixos-anywhere
+
 Boot installer  
 set passwd for nixos  
 ssh into installer  
