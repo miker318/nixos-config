@@ -41,6 +41,16 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
+      nixos-pve = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        # > Our main nixos configuration file <
+        modules = shared-modules ++ [
+          disko.nixosModules.disko
+          ./hosts/nixos-pve.nix
+        ];
+      };
       nixostest = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
@@ -50,16 +60,6 @@
           ./hosts/nixostest.nix
           disko.nixosModules.disko
           inputs.musnix.nixosModules.musnix
-        ];
-      };
-      nixos-pve = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs;
-        };
-        # > Our main nixos configuration file <
-        modules = shared-modules ++ [
-          disko.nixosModules.disko
-          ./hosts/nixostest.nix
         ];
       };
     };
