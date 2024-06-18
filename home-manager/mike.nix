@@ -21,6 +21,7 @@
 
   home-manager = {
     users.mike = {
+      initialPassword = "password";
       imports = [ ./home.nix ];
       programs.git = {
         enable = true;
