@@ -3,6 +3,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mike = {
     isNormalUser = true;
+    initialPassword = "password";
     extraGroups = [ "networkmanager" "wheel" "audio" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       firefox
@@ -21,7 +22,6 @@
 
   home-manager = {
     users.mike = {
-      initialPassword = "password";
       imports = [ ./home.nix ];
       programs.git = {
         enable = true;
