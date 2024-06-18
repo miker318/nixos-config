@@ -15,6 +15,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Enable VM copy/paste
+  services.spice-vdagentd.enable = true;
+  services.qemuGuest.enable = true;
+
   networking.hostName = "nixostest"; # Define your hostname.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
