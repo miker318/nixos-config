@@ -21,7 +21,7 @@
   services.spice-vdagentd.enable = true;
   services.qemuGuest.enable = true;
 
-  networking.hostName = "nixostest"; # Define your hostname.
+  networking.hostName = "nixos-pve"; # Define your hostname.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   boot.initrd.availableKernelModules = [ "uhci_hcd" "ehci_pci" "ahci" "virtio_pci" "virtio_scsi" "sd_mod" "sr_mod" ];
