@@ -20,20 +20,6 @@
 
   };
 
-  dconf.settings = {
-    # ...
-    "org/gnome/shell" = {
-      favorite-apps = [
-        "firefox.desktop"
-        "code.desktop"
-        "org.gnome.Terminal.desktop"
-        "spotify.desktop"
-        "virt-manager.desktop"
-        "org.gnome.Nautilus.desktop"
-      ];
-    };
-  };
-
   home-manager = {
     users.mike = {
       imports = [ ./home.nix ];
