@@ -36,8 +36,15 @@
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  
+  services.xserver.desktopManager.gnome = {
+    # Add Firefox and other tools useful for installation to the launcher
+    favoriteAppsOverride = ''
+      [org.gnome.shell]
+      favorite-apps=[ 'firefox.desktop', 'org.gnome.Terminal.desktop', 'org.gnome.Nautilus.desktop' ]
+    '';
+    enable = true;
+  };
+
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
