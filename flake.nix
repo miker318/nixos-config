@@ -49,6 +49,7 @@
         modules = shared-modules ++ [
           ./hosts/nixos-pve.nix
           disko.nixosModules.disko
+          inputs.musnix.nixosModules.musnix
         ];
       };
       nixostest = nixpkgs.lib.nixosSystem {
