@@ -30,6 +30,19 @@
       };
       home.stateVersion = "24.05";
     };
+    dconf.settings = {
+      # ...
+      "org/gnome/shell" = {
+        favorite-apps = [
+          "firefox.desktop"
+          "code.desktop"
+          "org.gnome.Terminal.desktop"
+          "spotify.desktop"
+          "virt-manager.desktop"
+          "org.gnome.Nautilus.desktop"
+        ];
+      };
+    };
   };
 
 }
