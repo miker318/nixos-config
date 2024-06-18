@@ -31,9 +31,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable VM copy/paste
-  services.spice-vdagentd.enable = true;
-
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome = {
@@ -45,6 +42,9 @@
     enable = true;
   };
 
+  # KDE complains if power management is disabled (to be precise, if
+  # there is no power management backend such as upower).
+  powerManagement.enable = true;
 
   # Configure keymap in X11
   # services.xserver.xkb.layout = "us";
