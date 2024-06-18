@@ -41,7 +41,7 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      nixos-pve = nixpkgs.lib.nixosSystem {
+      "nixos-pve" = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
         };
