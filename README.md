@@ -1,6 +1,7 @@
-# Assuming
-# - your system is x86_64-linux
-# - your harddrive device is /dev/sda
+- Assuming
+- - your system is x86_64-linux
+- - your harddrive device is /dev/vda
+
 FLAKE="github:miker318/nixos-config/master#nixostest"
 DISK_DEVICE=/dev/vda
 sudo nix \
