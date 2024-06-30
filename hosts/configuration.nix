@@ -79,6 +79,9 @@
     wget
     mc
     vscode
+    dust
+    btop
+    atuin
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
