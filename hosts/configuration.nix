@@ -91,6 +91,8 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+  
+  programs.fish.enable = true;
 
   # List services that you want to enable:
 
