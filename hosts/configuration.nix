@@ -41,6 +41,13 @@
     '';
     enable = true;
   };
+  environment.gnome.excludePackages = (with pkgs; [
+    orca      # screen reader
+  ]) ++ (with pkgs.gnome; [
+    cheese    # photo booth
+    epiphany  # web browser
+    geary     # email client
+  ]);
 
   # KDE complains if power management is disabled (to be precise, if
   # there is no power management backend such as upower).
