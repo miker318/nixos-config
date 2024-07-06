@@ -89,6 +89,7 @@
     dust
     btop
     atuin
+    gnome-firmware
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

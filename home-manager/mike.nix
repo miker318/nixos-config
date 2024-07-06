@@ -11,6 +11,13 @@
       ardour
       audacity
       qjackctl
+      libreoffice-fresh
+      transmission
+      virt-manager
+      solaar
+      calibre
+      obsidian
+      thunderbird
     ];
     openssh = {
       authorizedKeys.keys = [
@@ -19,6 +26,8 @@
     };
     shell = pkgs.fish;
   };
+
+  programs.steam.enable = true;
 
   home-manager = {
     users.mike = {

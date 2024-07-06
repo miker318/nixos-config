@@ -41,4 +41,34 @@
   musnix.enable = true;
   musnix.alsaSeq.enable = false;
   musnix.kernel.realtime = false;
+
+  services = {
+    syncthing = {
+      enable = true;
+      user = "mike";
+      dataDir = "/home/mike";
+      configDir = "/home/mike/.config/syncthing";
+      overrideDevices = true;     # overrides any devices added or deleted through the WebUI
+      overrideFolders = true;     # overrides any folders added or deleted through the WebUI
+      settings = {
+        devices = {
+          "FWLaptop" = { id = "B76TUXA-7L7CLWB-B3R3IGY-Q7AEZOP-N25HO5G-5KD4W4U-O4TLVWH-TNUD2AS"; };
+          "ubuntuNUC" = { id = "AKRVT7K-PNJQP4N-7JIY7QJ-MP7HMUU-QHEP37X-OO7L52G-EGGNMBH-L5NXDAR"; };
+        };
+        folders = {
+          "default" = {         # Name of folder in Syncthing, also the folder ID
+            path = "/home/mike/Sync";    # Which folder to add to Syncthing
+            devices = [ "FWLaptop" "ubuntuNUC" ];      # Which devices to share the folder with
+          };
+        };
+      };
+    };
+  };
+  # Syncthing ports: 8384 for remote access to GUI
+  # 22000 TCP and/or UDP for sync traffic
+  # 21027/UDP for discovery
+  # source: https://docs.syncthing.net/users/firewall.html
+  networking.firewall.allowedTCPPorts = [ 22000 ];
+  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
+
 }
