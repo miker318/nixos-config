@@ -15,6 +15,8 @@
     
     firefox-addons = { url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons"; inputs.nixpkgs.follows = "nixpkgs"; };
     musnix = { url = "github:musnix/musnix"; };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = {
@@ -60,6 +62,18 @@
           ./hosts/nixostest.nix
           disko.nixosModules.disko
           inputs.musnix.nixosModules.musnix
+        ];
+      };
+      fw-nix = nixpkgs.lib.nixosSystem {
+        specialArgs = {
+          inherit inputs;
+        };
+        # > Our main nixos configuration file <
+        modules = shared-modules ++ [
+          ./hosts/fw-nix.nix
+          disko.nixosModules.disko
+          inputs.musnix.nixosModules.musnix
+          inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
         ];
       };
     };
