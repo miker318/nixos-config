@@ -37,7 +37,10 @@
   # networking.interfaces.enp6s18.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.enableRedistributableFirmware = true;
+
+
   musnix.enable = true;
   musnix.alsaSeq.enable = false;
   musnix.kernel.realtime = false;
