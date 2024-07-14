@@ -17,6 +17,7 @@
       solaar
       calibre
       obsidian
+      joplin-desktop
       thunderbird
       bitwarden-desktop
       bitwarden-cli
