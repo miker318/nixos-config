@@ -56,6 +56,7 @@
   musnix.kernel.realtime = false;
 
   services = {
+    teamviewer.enable = true;
     syncthing = {
       enable = true;
       user = "mike";
