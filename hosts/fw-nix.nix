@@ -21,6 +21,10 @@
   services.spice-vdagentd.enable = true;
   services.qemuGuest.enable = true;
 
+  # Enable Virtual Machines
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
   networking.hostName = "fw-nix"; # Define your hostname.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
@@ -40,6 +44,12 @@
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   hardware.enableRedistributableFirmware = true;
 
+  services.printing.enable = true;
+    services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
 
   musnix.enable = true;
   musnix.alsaSeq.enable = false;

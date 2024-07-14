@@ -4,7 +4,7 @@
   users.users.mike = {
     isNormalUser = true;
     initialPassword = "password";
-    extraGroups = [ "networkmanager" "wheel" "audio" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "networkmanager" "wheel" "audio" "libvirtd" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       firefox
       tree
@@ -18,6 +18,8 @@
       calibre
       obsidian
       thunderbird
+      bitwarden-desktop
+      bitwarden-cli
     ];
     openssh = {
       authorizedKeys.keys = [
@@ -45,6 +47,14 @@
         settings = {
         # Uncomment this to use your instance
         # sync_address = "https://majiy00-shell.fly.dev";
+        };
+      };
+
+      # Setup VM Hypervisor connection
+      dconf.settings = {
+        "org/virt-manager/virt-manager/connections" = {
+          autoconnect = ["qemu:///system"];
+          uris = ["qemu:///system"];
         };
       };
 
