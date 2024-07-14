@@ -12,7 +12,7 @@
       audacity
       qjackctl
       libreoffice-fresh
-      transmission
+      transmission_4-gtk
       virt-manager
       solaar
       calibre
