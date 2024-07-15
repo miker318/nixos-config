@@ -90,6 +90,7 @@
     btop
     atuin
     gnome-firmware
+    intel-gpu-tools
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
