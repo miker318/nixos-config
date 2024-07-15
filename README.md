@@ -11,6 +11,13 @@ sudo nix \
     --write-efi-boot-entries \
     --disk main "$DISK_DEVICE"
 
+sudo nix \
+    --extra-experimental-features 'flakes nix-command' \
+    run github:nix-community/disko#disko -- \
+    --mode disko --flake "$FLAKE"
+
+nixos-install --flake "$FLAKE"
+
 # using nixos-anywhere
 
 Boot installer  
