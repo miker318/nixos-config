@@ -5,6 +5,9 @@
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
+    # Unstable Nixpkgs
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+
     # Disko
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
@@ -22,19 +25,27 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-unstable,
     disko,
     home-manager,
     ...
   } @ inputs: let
     inherit (self) outputs;
     system = "x86_64-linux";
-    specialArgs = {inherit inputs outputs;};
+    pkgs-unstable = import nixpkgs-unstable {
+      inherit system;
+      config.allowUnfree = true;
+    };
     shared-modules = [
       home-manager.nixosModules.home-manager
       {
         home-manager = {
           useUserPackages = true;
-          extraSpecialArgs = specialArgs;
+          extraSpecialArgs = {
+            inherit inputs;
+            inherit outputs;
+            inherit pkgs-unstable;
+          };
           backupFileExtension = "backup";
         };
       }
@@ -46,6 +57,7 @@
       nixos-pve = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
+          inherit pkgs-unstable;
         };
         # > Our main nixos configuration file <
         modules = shared-modules ++ [
@@ -56,6 +68,7 @@
       nixostest = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
+          inherit pkgs-unstable;
         };
         # > Our main nixos configuration file <
         modules = shared-modules ++ [
@@ -67,6 +80,7 @@
       fw-nix = nixpkgs.lib.nixosSystem {
         specialArgs = {
           inherit inputs;
+          inherit pkgs-unstable;
         };
         # > Our main nixos configuration file <
         modules = shared-modules ++ [
