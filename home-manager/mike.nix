@@ -19,6 +19,7 @@
       thunderbird
       bitwarden-desktop
       bitwarden-cli
+      fastfetch
     ])
     
     ++
