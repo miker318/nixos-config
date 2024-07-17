@@ -28,6 +28,12 @@
   networking.hostName = "fw-nix"; # Define your hostname.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
+  networking.firewall = {
+   checkReversePath = false;
+   # if packets are still dropped, they will show up in dmesg
+   logReversePathDrops = true;
+  };
+
   boot.initrd.availableKernelModules = [ "xhci_hcd" "thunderbolt" "nvme" "usb_storage" "uas" "sd_mod" "uhci_hcd" "ehci_pci" "ahci" "virtio_pci" "virtio_scsi" "sr_mod" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
