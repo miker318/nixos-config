@@ -69,6 +69,9 @@
     nssmdns4 = true;
     openFirewall = true;
   };
+  environment.systemPackages = [
+    pkgs.cups-brother-hll2350dw
+  ];
 
   musnix.enable = true;
   musnix.alsaSeq.enable = false;
