@@ -91,6 +91,7 @@
     atuin
     gnome-firmware
     intel-gpu-tools
+    python3
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -100,6 +101,8 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
+
+  programs.nix-ld.enable = true;
   
   programs.fish.enable = true;
 
