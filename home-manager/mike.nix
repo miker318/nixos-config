@@ -6,8 +6,7 @@
     initialPassword = "password";
     extraGroups = [ "networkmanager" "wheel" "audio" "libvirtd" ]; # Enable ‘sudo’ for the user.
     packages = (with pkgs; [
-      firefox
-      firefoxpwa
+      #firefox
       tree
       ardour
       audacity
@@ -28,6 +27,7 @@
    
     (with pkgs-unstable; [
       joplin-desktop
+      firefoxpwa
     ]);
 
     openssh = {
@@ -41,7 +41,7 @@
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
-    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+    nativeMessagingHosts.packages = [ pkgs-unstable.firefoxpwa ];
   };
   programs.steam.enable = true;
 
