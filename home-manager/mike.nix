@@ -38,7 +38,11 @@
     shell = pkgs.fish;
   };
 
-  programs.firefox.nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox;
+    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
+  };
   programs.steam.enable = true;
 
   home-manager = {
