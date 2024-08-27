@@ -20,6 +20,7 @@
       bitwarden-desktop
       bitwarden-cli
       fastfetch
+      localsend
     ])
     
     ++
