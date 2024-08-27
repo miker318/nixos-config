@@ -7,6 +7,7 @@
     extraGroups = [ "networkmanager" "wheel" "audio" "libvirtd" ]; # Enable ‘sudo’ for the user.
     packages = (with pkgs; [
       firefox
+      firefoxpwa
       tree
       ardour
       audacity
@@ -37,6 +38,7 @@
     shell = pkgs.fish;
   };
 
+  programs.firefox.nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
   programs.steam.enable = true;
 
   home-manager = {
