@@ -45,6 +45,7 @@
     nativeMessagingHosts.packages = [ pkgs-unstable.firefoxpwa ];
   };
   programs.steam.enable = true;
+  virtualisation.virtualbox.host.enable = true;
 
   home-manager = {
     users.mike = {
