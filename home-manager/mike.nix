@@ -4,7 +4,7 @@
   users.users.mike = {
     isNormalUser = true;
     initialPassword = "password";
-    extraGroups = [ "networkmanager" "wheel" "audio" "libvirtd" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "networkmanager" "wheel" "audio" "libvirtd" "vboxusers"]; # Enable ‘sudo’ for the user.
     packages = (with pkgs; [
       #firefox
       tree
@@ -21,7 +21,6 @@
       bitwarden-cli
       fastfetch
       localsend
-      virtualbox
     ])
     
     ++
@@ -45,7 +44,10 @@
     nativeMessagingHosts.packages = [ pkgs-unstable.firefoxpwa ];
   };
   programs.steam.enable = true;
-  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.host = {
+    enable = true;
+    #enableExtensionPack = true;
+  };
 
   home-manager = {
     users.mike = {
