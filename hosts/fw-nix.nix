@@ -71,6 +71,7 @@
   };
   environment.systemPackages = [
     pkgs.cups-brother-hll2350dw
+    pkgs.framework-tool
   ];
 
   musnix.enable = true;
