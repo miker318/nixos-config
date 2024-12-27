@@ -21,6 +21,7 @@
       bitwarden-cli
       fastfetch
       localsend
+      obsidian
     ])
     
     ++
